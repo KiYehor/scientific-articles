@@ -1,6 +1,6 @@
 # Scientific Articles Platform
 
-![Platform](docs/images/homepage.png)
+![Platform](docs/screenshots/homepage.png)
 
 ## Overview
 
@@ -133,23 +133,23 @@ scientific-articles
 
 ### Home Page
 
-![Platform](docs/images/homepage.png)
+![Homepage](docs/screenshots/homepage.png)
 
 ### Login Page
 
-![Platform](docs/images/login.png)
+![LoginPage](docs/screenshots/login.png)
 
-### Article Management
+### Article Upload
 
-![Platform](docs/images/homepage.png)
+![UploadPage](docs/screenshots/upload.png)
 
 ### Admin Panel
 
-![Platform](docs/images/admin.png)
+![AdminPanel](docs/screenshots/admin.png)
 
 ### Grafana Monitoring
 
-![Platform](docs/images/data.png)
+![DataPage](docs/screenshots/data.png)
 
 ---
 
