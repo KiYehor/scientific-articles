@@ -35,79 +35,132 @@ export default function HomePage() {
     return (
 
         <div className="min-h-screen bg-gray-100">
+
             <Navbar />
-            <div className="bg-black text-white py-24 px-10 text-center">
 
-                <h1 className="text-6xl font-bold mb-6">
-                    Scientific Articles Platform
-                </h1>
+            {/* HERO SECTION */}
 
-                <p className="text-2xl text-gray-300 mb-10">
-                    Publish, review and explore scientific research
-                </p>
+            <div className="bg-gradient-to-br from-black via-gray-900 to-gray-800 text-white">
 
-                <div className="flex justify-center gap-6">
+                <div className="max-w-6xl mx-auto px-6 py-28 text-center">
 
-                    <button
-                        onClick={() => {
-                            window.location.href = "/login";
-                        }}
-                        className="bg-white text-black px-8 py-4 rounded-2xl font-bold"
-                    >
-                        Login
-                    </button>
+                    <div className="inline-block px-4 py-2 rounded-full bg-white/10 border border-white/10 text-sm text-gray-300 mb-6">
+                        Scientific Research Platform
+                    </div>
 
-                    <button
-                        onClick={() => {
-                            window.location.href = "/register";
-                        }}
-                        className="bg-blue-500 px-8 py-4 rounded-2xl font-bold"
-                    >
-                        Register
-                    </button>
+                    <h1 className="text-5xl md:text-7xl font-bold leading-tight mb-6">
+                        Publish and Explore
+                        <br />
+                        Scientific Research
+                    </h1>
+
+                    <p className="text-lg md:text-xl text-gray-400 max-w-2xl mx-auto mb-10">
+                        Modern platform for publishing, reviewing and discovering academic articles.
+                    </p>
+
+                    <div className="flex flex-col sm:flex-row justify-center gap-4">
+
+                        <button
+                            onClick={() => {
+                                window.location.href = "/login";
+                            }}
+                            className="bg-white text-black px-8 py-4 rounded-2xl font-semibold hover:scale-105 transition"
+                        >
+                            Login
+                        </button>
+
+                        <button
+                            onClick={() => {
+                                window.location.href = "/register";
+                            }}
+                            className="bg-blue-500 px-8 py-4 rounded-2xl font-semibold hover:bg-blue-600 transition"
+                        >
+                            Register
+                        </button>
+
+                    </div>
 
                 </div>
 
             </div>
 
 
-            <div className="p-10 max-w-7xl mx-auto">
+            {/* ARTICLES SECTION */}
 
-                <h2 className="text-4xl font-bold mb-10">
-                    Accepted Articles
-                </h2>
+            <div className="bg-white rounded-t-[3rem] -mt-12 relative z-10 shadow-2xl">
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div className="p-10 max-w-7xl mx-auto">
 
-                    {articles.map((article) => (
+                    <div className="text-center mb-14">
 
-                        <div
-                            key={article.id}
-                            onClick={() => {
-                                window.location.href =
-                                    `/public/articles/${article.id}`;
-                            }}
-                            className="bg-white rounded-2xl shadow-lg p-6 cursor-pointer hover:scale-[1.02] transition"
-                        >
+                        <p className="text-blue-500 font-semibold mb-3">
+                            PUBLICATIONS
+                        </p>
 
-                            <h3 className="text-2xl font-bold mb-4">
-                                {article.title}
-                            </h3>
-                            <p className="text-gray-500 mb-4">
-                                By {article.author.first_name}{" "}
-                                {article.author.last_name}
-                            </p>
-                            <p className="text-gray-600 mb-6">
-                                {article.abstract}
-                            </p>
+                        <h2 className="text-5xl font-bold mb-4">
+                            Recent Articles
+                        </h2>
 
-                            <span className="bg-green-500 text-white px-4 py-2 rounded-full text-sm">
-                                ACCEPTED
-                            </span>
+                        <p className="text-gray-500 max-w-2xl mx-auto">
+                            Explore recently published scientific papers from researchers and reviewers.
+                        </p>
 
-                        </div>
+                    </div>
 
-                    ))}
+
+                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        {articles.map((article) => (
+
+                            <div
+                                key={article.id}
+                                onClick={() => {
+                                    window.location.href =
+                                        `/public/articles/${article.id}`;
+                                }}
+                                className="bg-gray-50 border border-gray-200 rounded-3xl p-7 cursor-pointer hover:shadow-2xl hover:-translate-y-1 transition duration-300"
+                            >
+
+                                <div className="flex items-center justify-between mb-5">
+
+                                    <span className="bg-green-100 text-green-700 px-4 py-2 rounded-full text-sm font-semibold">
+                                        PUBLISHED
+                                    </span>
+
+                                </div>
+
+
+                                <h3 className="text-2xl font-bold mb-4 line-clamp-2">
+                                    {article.title}
+                                </h3>
+
+                                <p className="text-gray-500 mb-5">
+                                    By {article.author.first_name}{" "}
+                                    {article.author.last_name}
+                                </p>
+
+                                <p className="text-gray-600 line-clamp-4 mb-8">
+                                    {article.abstract}
+                                </p>
+
+
+                                <div className="flex items-center justify-between">
+
+                                    <span className="text-sm text-gray-400">
+                                        Read full article
+                                    </span>
+
+                                    <div className="w-10 h-10 rounded-full bg-black text-white flex items-center justify-center">
+                                        →
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        ))}
+
+                    </div>
 
                 </div>
 

@@ -33,6 +33,9 @@ services:
     depends_on:
       - db
 
+    environment:
+      DATABASE_URL: postgresql://postgres:postgres@db:5432/scientific_articles
+
     volumes:
       - ./backend:/app
 
