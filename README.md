@@ -81,6 +81,28 @@ This project was developed as part of the JEE university course.
 
 ---
 
+## Docker Deployment
+
+The application is fully containerized using Docker Compose.
+
+Containers:
+
+- frontend
+- backend
+- postgres
+- prometheus
+- grafana
+
+## Database
+
+The application uses PostgreSQL for storing:
+
+- users
+- articles
+- reviews
+- notifications
+- publication data
+
 ## System Architecture
 
 ```text
