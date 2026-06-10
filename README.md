@@ -1,64 +1,240 @@
-# Scientific Articles Management Platform
+# Scientific Articles Platform
+
+![Platform](docs/images/homepage.png)
 
 ## Overview
 
-Web platform for managing scientific articles,
-peer reviews and publication workflow.
+Scientific Articles Platform is a full-stack web application designed for managing the scientific publication workflow.
+
+The system allows users to submit scientific articles, perform peer reviews, publish accepted papers and monitor application health through integrated observability tools.
+
+This project was developed as part of the JEE university course.
+
+---
 
 ## Features
 
-- JWT Authentication
-- Role-based access
-- Article upload
-- Review system
-- Admin moderation
+### User Management
+
+- User registration
+- User authentication using JWT
+- Role-based access control
+- Author, Reviewer and Administrator roles
+
+### Article Workflow
+
+- Create article submissions
+- Edit article metadata
+- Upload article files
+- Submit articles for review
+- Review assignment process
 - Publication workflow
-- Public homepage
-- CSV export
-- Docker support
-- Monitoring with Prometheus & Grafana
 
-## Tech Stack
+### Search and Filtering
 
-Frontend:
+- Search by title
+- Filter by category
+- Filter by status
+
+### Monitoring
+
+- Prometheus metrics collection
+- Grafana dashboards
+- Health monitoring
+
+---
+
+## Technology Stack
+
+### Frontend
+
 - React
 - TypeScript
-- TailwindCSS
+- Vite
+- Axios
+- React Router
 
-Backend:
+### Backend
+
 - FastAPI
 - SQLAlchemy
+- JWT Authentication
+- Pydantic
+
+### Database
+
 - PostgreSQL
 
-DevOps:
+### DevOps
+
 - Docker
 - Docker Compose
+
+### Monitoring
+
 - Prometheus
 - Grafana
 
-## Roles
+### Testing
 
-### Author
-- Upload articles
-- Manage own submissions
+- Pytest
 
-### Reviewer
-- Review articles
-- Add scores and comments
+---
 
-### Admin
-- Moderate articles
-- Publish accepted papers
-- Manage reviewers
+## System Architecture
 
-## Installation
+```text
+┌───────────────┐
+│ React Frontend│
+└───────┬───────┘
+        │ HTTP
+        ▼
+┌───────────────┐
+│ FastAPI       │
+│ Backend       │
+└───────┬───────┘
+        │ SQLAlchemy
+        ▼
+┌───────────────┐
+│ PostgreSQL    │
+└───────────────┘
+
+Prometheus ───► Backend Metrics
+Grafana ──────► Prometheus
+```
+
+---
+
+## Project Structure
+
+```text
+scientific-articles
+│
+├── backend
+│   ├── app
+│   ├── tests
+│   └── requirements.txt
+│
+├── frontend
+│   ├── src
+│   └── package.json
+│
+├── monitoring
+│   └── prometheus.yml
+│
+├── docker-compose.yml
+│
+└── README.md
+```
+
+---
+
+## Screenshots
+
+### Home Page
+
+![Platform](docs/images/homepage.png)
+
+### Login Page
+
+![Platform](docs/images/login.png)
+
+### Article Management
+
+![Platform](docs/images/homepage.png)
+
+### Admin Panel
+
+![Platform](docs/images/admin.png)
+
+### Grafana Monitoring
+
+![Platform](docs/images/data.png)
+
+---
+
+## Quick Start
+
+Clone repository:
+
+```bash
+git clone https://github.com/KiYehor/scientific-articles.git
+
+cd scientific-articles
+```
+
+Start application:
 
 ```bash
 docker compose up --build
 ```
 
-Application URLs
-Frontend: http://localhost:5173
-Backend Docs: http://localhost:8000/docs
-Grafana: http://localhost:3000
-Prometheus: http://localhost:9090
+---
+
+## Application URLs
+
+Frontend
+
+```text
+http://localhost:5173
+```
+
+Backend API
+
+```text
+http://localhost:8000
+```
+
+Swagger Documentation
+
+```text
+http://localhost:8000/docs
+```
+
+Prometheus
+
+```text
+http://localhost:9090
+```
+
+Grafana
+
+```text
+http://localhost:3000
+```
+
+---
+
+## Running Tests
+
+Backend tests:
+
+```bash
+cd backend
+
+pytest
+```
+
+---
+
+## Monitoring
+
+Application monitoring is implemented using Prometheus and Grafana.
+
+Metrics are collected from the FastAPI backend and visualized through Grafana dashboards.
+
+---
+
+## Authors
+
+University project developed for the JEE course.
+
+Author:
+
+- Yehor Hrytsaienko
+
+---
+
+## License
+
+Educational project.
